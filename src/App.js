@@ -22,12 +22,12 @@ function App() {
           <Route exact path='/first' element={<FirstComponent />} />
           <Route exact path='/second' element={<SecondComponent />} />
           <Route exact path='/third' element={<ThirdComponent />} />
-          <Route exact path='/' element={<TempratureComponent />} />
+          <Route exact path='/Temp' element={<TempratureComponent />} />
           <Route exact path='/register' element={<RegisterForm />} />
           <Route exact path='/form-validation' element={<RegWithFormValidation />} />
           <Route exact path='/func-form-val' element={<RegValWithFunctionalComp />} />
           <Route exact path='/quiz' element={<Quiz />} />
-          <Route exact path='/todo' element={<TodoListWrap />} />
+          <Route exact path='/' element={<TodoListWrap />} />
         </Routes>
       </Router>
     </Provider>
