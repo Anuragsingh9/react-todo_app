@@ -1,0 +1,32 @@
+.register-form-body{
+background-color: #7cbbbd;
+border-radius: 8px;
+}
+.register-form{
+    padding: 50px 20px;
+}
+.form-main{
+    padding: 40px 5px;
+}
+.register-form button{
+    background-color: #16797c;
+    outline: none;
+}
+.error-msg{
+    color: #e52929;
+}
+.success-box{
+    padding: 10px 5px;
+    background: green;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    font-size: 15px;
+}
+.temp-body a{
+    color: white;
+    background-color: darkcyan;
+    border-radius: 5px;
+    padding: 0px 9px;
+    margin: 5px 0px;
+}

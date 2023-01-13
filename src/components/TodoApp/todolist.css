@@ -1,0 +1,110 @@
+.todo-container{
+    background-color: #f8f8ff;
+    height: 100vh;
+}
+.todo-title h5{
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 10px;
+    color: #646681;
+}
+.todo-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.header-part{
+    /* border: 1px solid red; */
+}
+.add-task-btn{
+    background-color: #646ff0 !important;
+    border: none !important;
+    font-size: 17px !important;
+    font-weight: 600 !important;
+}
+.input-box input,select{
+    width: 100%;
+    border: none;
+}
+.input-box input:focus{
+    outline: none;
+}
+.label{
+    margin: 5px 0px;
+}
+.modal-content{
+    background-color: #ecedf6 !important;
+}
+.item-wrapper{
+    background-color: #ecedf6;
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 18px;
+    overflow-y: auto;
+    height: 70%;
+}
+.item-box{
+    height: 65px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.item-box:hover{
+    background-color:#dddddd !important
+}
+.item{
+    display: flex;
+    flex-direction: row;
+}
+.margin-right-5{
+    margin-right: 5px;
+}
+.checkbox{
+    width: 20px;
+    height: 20px;
+    margin-top: 12px;
+}
+.right-item div{
+    margin: 5px 5px;
+}
+.item div:hover{
+    cursor: pointer;
+}
+.todo-title{
+    color: #585858;
+    font-weight: 600;
+}
+.todo-date{
+    font-size: 10px;
+    font-weight: 700;
+    color: #585858;
+}
+.trash-btn{
+    color: #d15757;
+}
+.trash-btn:hover{
+    color: #bb8686;
+}
+.edit-btn{
+    color: #585858;
+}
+.edit-btn:hover{
+    color:#a39b9b
+}
+.line-throughh{
+    text-decoration: line-through;
+}
+.invalidForm{
+    border:2px solid red !important;
+}
+.no_todo{
+    position: relative;
+    text-align: center;
+    margin: 190px 0;
+    font-size: 20px;
+}
