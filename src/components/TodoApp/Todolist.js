@@ -97,8 +97,9 @@ const Todolist = (props) => {
                     id: id,
                     title: title,
                     date: date.toLocaleDateString(),
-                    isCompleted: isCompleted
+                    isCompleted: options === 'completed' ? true : false,
                 }
+                console.log('newTodoData', newTodo);
                 props.addTodo(newTodo);
                 showNotification('success', 'Todo added successfully')
             }
@@ -163,10 +164,10 @@ const Todolist = (props) => {
                             <label className='label'>Status</label>
                             <div className='form-control input-box'>
                                 <select name='languages' value={options} onChange={handleOptoinChange}>
-                                    <option value='completed' selected>
+                                    <option value='completed'>
                                         Completed
                                     </option>
-                                    <option value='incomplete'>
+                                    <option value='incomplete' selected>
                                         Incomplete
                                     </option>
                                 </select>
