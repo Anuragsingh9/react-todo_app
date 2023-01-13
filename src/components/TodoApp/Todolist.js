@@ -153,7 +153,7 @@ const Todolist = (props) => {
             <h5>TODO LIST</h5>
         </div>
         <hr></hr>
-        <div className='todo-header col-md-4 offset-4'>
+        <div className='todo-header col-sm-4 offset-4'>
             <div className='header-part left-header'>
                 <>
                     <Button variant="primary add-task-btn" onClick={handleShow}>
