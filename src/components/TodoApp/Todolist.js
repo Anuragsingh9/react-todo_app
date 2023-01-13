@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { connect } from 'react-redux';
-import { addTodo, handlePopUp, updatedTodo, updateFilter } from '../../redux/Todo/TodoActions';
+import { addTodo, handlePopUp, updatedTodo, updateFilter, updateIncompltedTasksCount } from '../../redux/Todo/TodoActions';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -62,6 +62,7 @@ const Todolist = (props) => {
 
     useEffect(() => {
         console.log('filter', props.current_filter);
+        // updateIncompltedTasksCount();
         if (props.current_todo && props.current_todo !== undefined) {
             setIsUpdateMode(true);
             setTitle(props.current_todo[0].title);
@@ -71,6 +72,14 @@ const Todolist = (props) => {
             setTitle("");
         }
     }, [props.current_todo])
+
+    const countIncompletedTodo = () => {
+        const incompletedTasks = props.todo_list.filter((current) => {
+            return current.isCompleted === false;
+        })
+        props.updateIncompltedTasksCount(incompletedTasks.length);
+        console.log('incop', incompletedTasks.length);
+    }
 
     const handleClose = () => {
         if (title === undefined || title === "") {
@@ -91,6 +100,7 @@ const Todolist = (props) => {
                     isCompleted: options
                 }
                 props.updatedTodo(newTodo);
+                countIncompletedTodo();
                 showNotification('success', 'Todo updated successfully');
             } else {
                 const newTodo = {
@@ -101,6 +111,7 @@ const Todolist = (props) => {
                 }
                 console.log('newTodoData', newTodo);
                 props.addTodo(newTodo);
+                countIncompletedTodo();
                 showNotification('success', 'Todo added successfully')
             }
             props.handlePopUp(false);
@@ -137,16 +148,13 @@ const Todolist = (props) => {
 
     }
 
-    // useEffect(() => {
-
-    // }, [selectedDropdown]);
-
     return (<>
         <div className='todo-title'>
             <h5>TODO LIST</h5>
         </div>
+        <hr></hr>
         <div className='todo-header col-md-4 offset-4'>
-            <div className='header-part'>
+            <div className='header-part left-header'>
                 <>
                     <Button variant="primary add-task-btn" onClick={handleShow}>
                         {isUpdateMode ? "Update Task" : "Add Task"}
@@ -186,6 +194,11 @@ const Todolist = (props) => {
             </div>
 
             <div className='header-part'>
+                <div className='notification'>
+                    <span>
+                        <p className='pop-up'>Incompleted </p> {props.total_incompleted_tasks}
+                    </span>
+                </div>
                 <Dropdown>
                     <Dropdown.Toggle variant="secondary" id="dropdown-basic">
                         {OPTIONS[selectedDropdown]}
@@ -208,7 +221,8 @@ const mapStateToProps = (state) => {
         is_pop_up_open: state.handle_pop,
         current_todo: state.current_todo,
         todo_list: state.todo_list,
-        current_filter: state.current_filter
+        current_filter: state.current_filter,
+        total_incompleted_tasks: state.total_incompleted_tasks,
     }
 }
 
@@ -218,6 +232,7 @@ const mapDispacthToProps = (dispatch) => {
         handlePopUp: (data) => dispatch(handlePopUp(data)),
         updatedTodo: (data) => dispatch(updatedTodo(data)),
         updateFilter: (data) => dispatch(updateFilter(data)),
+        updateIncompltedTasksCount: data => dispatch(updateIncompltedTasksCount(data)),
     }
 }
 

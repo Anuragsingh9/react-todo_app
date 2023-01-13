@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Item from './item';
 import { connect } from 'react-redux';
+import { updateIncompltedTasksCount } from '../../redux/Todo/TodoActions';
 
 const ItemsWrapper = (props) => {
 
@@ -11,19 +12,28 @@ const ItemsWrapper = (props) => {
         setDtatAccordingFilter();
     }, [props.current_filter, props.todo_list])
 
+    const countIncompletedTodo = () => {
+        const incompletedTasks = props.todo_list.filter((current) => {
+            return current.isCompleted === false;
+        })
+        props.updateIncompltedTasksCount(incompletedTasks.length);
+    }
+
     const setDtatAccordingFilter = () => {
-        console.log('todoList', todoList)
         if (props.current_filter === 'completed') {
             const filteredData = props.todo_list.filter((current) => {
                 return current.isCompleted === true;
             });
             setTodoData(filteredData);
+            countIncompletedTodo();
         } else if (props.current_filter === 'incomplete') {
             const filteredData = props.todo_list.filter((current) => {
                 return current.isCompleted === false;
             });
             setTodoData(filteredData);
+            countIncompletedTodo();
         } else {
+            countIncompletedTodo();
             return setTodoData(props.todo_list);
         }
     }
@@ -38,15 +48,17 @@ const ItemsWrapper = (props) => {
     );
 }
 
-const mapDispacthToProps = () => {
+const mapDispacthToProps = (dispatch) => {
     return {
+        updateIncompltedTasksCount: data => dispatch(updateIncompltedTasksCount(data)),
     }
 }
 
 const mapStateToProps = (state) => {
     return {
         todo_list: state.todo_list,
-        current_filter: state.current_filter
+        current_filter: state.current_filter,
+        total_incompleted_tasks: state.total_incompleted_tasks,
     }
 }
 

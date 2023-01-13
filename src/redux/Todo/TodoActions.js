@@ -1,4 +1,4 @@
-import { ADD_TODO, UPDATE_CHECKBOX, GET_SINGLE_TODO, HANDLE_POP_UP, CURRENT_TODO_DATA, UPDATE_TODO, DELETE_TODO, CURRENT_FILTER } from "./TodoTypes";
+import { ADD_TODO, UPDATE_CHECKBOX, GET_SINGLE_TODO, HANDLE_POP_UP, CURRENT_TODO_DATA, UPDATE_TODO, TOTAL_INCOMPLETED_TASKS, DELETE_TODO, CURRENT_FILTER } from "./TodoTypes";
 
 export const addTodo = (data) => {
     return {
@@ -51,6 +51,12 @@ export const deleteTodo = data => {
 export const updateFilter = data => {
     return {
         type: CURRENT_FILTER,
+        payload: data
+    }
+}
+export const updateIncompltedTasksCount = data => {
+    return {
+        type: TOTAL_INCOMPLETED_TASKS,
         payload: data
     }
 }

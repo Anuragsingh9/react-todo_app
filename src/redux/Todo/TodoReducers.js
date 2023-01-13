@@ -1,5 +1,5 @@
 import { getTodo } from "./TodoActions";
-import { ADD_TODO, HANDLE_POP_UP, UPDATE_CHECKBOX, GET_SINGLE_TODO, CURRENT_TODO_DATA, UPDATE_TODO, DELETE_TODO, CURRENT_FILTER } from "./TodoTypes";
+import { ADD_TODO, HANDLE_POP_UP, UPDATE_CHECKBOX, GET_SINGLE_TODO, CURRENT_TODO_DATA, UPDATE_TODO, DELETE_TODO, CURRENT_FILTER, TOTAL_INCOMPLETED_TASKS } from "./TodoTypes";
 
 const initialState = {
     todo_list: [
@@ -19,7 +19,8 @@ const initialState = {
     handle_pop: false,
     single_todo: null,
     current_todo: "",
-    current_filter: 'all'
+    current_filter: 'all',
+    total_incompleted_tasks: 1,
 }
 
 const todoReducer = (state = initialState, action) => {
@@ -70,6 +71,11 @@ const todoReducer = (state = initialState, action) => {
             return {
                 ...state,
                 current_filter: action.payload
+            }
+        case TOTAL_INCOMPLETED_TASKS:
+            return {
+                ...state,
+                total_incompleted_tasks: action.payload
             }
         default: return state
     }

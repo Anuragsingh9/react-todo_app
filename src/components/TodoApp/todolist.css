@@ -1,6 +1,7 @@
 .todo-container{
     background-color: #f8f8ff;
     height: 100vh;
+    padding-bottom: 30px;
 }
 .todo-title h5{
     font-size: 3rem;
@@ -107,4 +108,32 @@
     text-align: center;
     margin: 190px 0;
     font-size: 20px;
+}
+.notification{
+    position: relative;
+    left: 43px;
+    top: 10px;
+    color: #161111;
+    z-index: 1;
+}
+.notification span{
+    padding: 3px 8px 3px 8px;
+    background-color: yellow;
+    border-radius: 24px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.left-header{
+    padding-top: 25px;
+}
+.pop-up{
+    display: none;
+    font-weight: 400;
+    transition: all 2s linear;
+    color: gray;
+}
+.notification:hover .pop-up{
+    display: table-cell;
+    padding: 2px 5px 3px 4px;
 }
