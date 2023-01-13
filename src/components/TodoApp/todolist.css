@@ -4,7 +4,7 @@
     padding-bottom: 30px;
 }
 .todo-title h5{
-    font-size: 3rem;
+    font-size: 9vh;
     font-weight: 700;
     text-align: center;
     padding: 10px;
@@ -14,9 +14,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-}
-.header-part{
-    /* border: 1px solid red; */
 }
 .add-task-btn{
     background-color: #646ff0 !important;

@@ -39,7 +39,7 @@ const ItemsWrapper = (props) => {
     }
 
     return (
-        <div className='item-wrapper col-md-4 offset-4'>
+        <div className='item-wrapper col-sm-4 offset-4'>
             {todoList.length === 0 && <p className='no_todo'>No Todo Found</p>}
             {todoList && todoList.map((todoData) => (
                 <Item todoData={todoData} key={todoData.id} />
