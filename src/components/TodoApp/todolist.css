@@ -9,7 +9,8 @@ html,body
 .todo-container{
     background-color: #f8f8ff;
     height: 100vh;
-    padding-bottom: 30px;
+    /* padding-bottom: 30px; */
+    padding: 25px 20px;
 }
 .todo-title h5{
     font-size: 9vh;
