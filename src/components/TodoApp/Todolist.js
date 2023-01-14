@@ -163,7 +163,7 @@ const Todolist = (props) => {
                     </Button>
 
                     <Modal show={props.is_pop_up_open} onHide={handleClose}>
-                        <Modal.Header closeButton>
+                        <Modal.Header>
                             <Modal.Title>Add TODO</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
