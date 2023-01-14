@@ -82,7 +82,7 @@ const Todolist = (props) => {
     }
 
     const handleClose = () => {
-        if (title === undefined || title === "") {
+        if (title === "") {
             setInvalidForm(true);
             showNotification('error', 'Please enter the title');
             return;
@@ -134,6 +134,8 @@ const Todolist = (props) => {
         if (event.target.value !== "") {
             setInvalidForm(false);
             setTitle(event.target.value);
+        }else{
+            setTitle("");
         }
     }
 
@@ -152,7 +154,7 @@ const Todolist = (props) => {
         <div className='todo-title'>
             <h5>TODO LIST</h5>
         </div>
-        <hr></hr>
+        {/* <hr></hr> */}
         <div className='todo-header col-sm-4'>
             <div className='header-part left-header'>
                 <>
@@ -161,7 +163,7 @@ const Todolist = (props) => {
                     </Button>
 
                     <Modal show={props.is_pop_up_open} onHide={handleClose}>
-                        <Modal.Header closeButton>
+                        <Modal.Header>
                             <Modal.Title>Add TODO</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
