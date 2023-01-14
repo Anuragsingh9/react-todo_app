@@ -82,7 +82,7 @@ const Todolist = (props) => {
     }
 
     const handleClose = () => {
-        if (title === undefined || title === "") {
+        if (title === "") {
             setInvalidForm(true);
             showNotification('error', 'Please enter the title');
             return;
@@ -134,6 +134,8 @@ const Todolist = (props) => {
         if (event.target.value !== "") {
             setInvalidForm(false);
             setTitle(event.target.value);
+        }else{
+            setTitle("");
         }
     }
 
