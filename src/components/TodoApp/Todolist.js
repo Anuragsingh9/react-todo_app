@@ -154,7 +154,7 @@ const Todolist = (props) => {
         <div className='todo-title'>
             <h5>TODO LIST</h5>
         </div>
-        <hr></hr>
+        {/* <hr></hr> */}
         <div className='todo-header col-sm-4'>
             <div className='header-part left-header'>
                 <>
